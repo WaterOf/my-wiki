@@ -1,0 +1,1509 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CU%E5%88%92%E5%88%86%E4%B8%8E%E7%BC%96%E7%A0%81%E9%A1%BA%E5%BA%8F/">
+      
+      
+        <link rel="next" href="../%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%EF%BC%9A%60getGeoBlendCand%60%20%E5%87%BD%E6%95%B0/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>主要流程 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              主要流程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/C%2B%2B%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++文件读取
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ECM-NNLF-VLOP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ECM-NNLF-VLOP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CU%E5%88%92%E5%88%86%E4%B8%8E%E7%BC%96%E7%A0%81%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CU划分与编码顺序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    主要流程
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    主要流程
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 函数功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 核心流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 模式决策循环
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rd-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) RD Cost 计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      (4) 划分决策
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键代码段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 关键代码段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 帧间预测处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 划分模式测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) 最终结果保存
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 特殊处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-nnlf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 与NNLF相关的问题排查
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%EF%BC%9A%60getGeoBlendCand%60%20%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    代码解释：`getGeoBlendCand` 函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%87%A0%E4%BD%95%E6%B7%B7%E5%90%88%E5%80%99%E9%80%89%28Geometric%20Blending%20Candidates%29%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    几何混合候选(Geometric Blending Candidates)详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B8%A7%E5%86%85%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    帧内预测模式依赖相邻CU信息程度
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E4%B8%AD%E5%90%84Buffer%E7%9A%84%E5%88%86%E7%B1%BB%E4%B8%8E%E4%BA%A7%E7%94%9F%E7%8E%AF%E8%8A%82%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    视频编解码中各Buffer的分类与产生环节分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E6%A0%87%E5%87%86%E4%B8%AD%E4%B8%BB%E8%A6%81%E5%9B%BE%E5%83%8F%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB%E5%92%8C%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    视频编解码标准中主要图像类型的分类和定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    vvenc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            vvenc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvenc/vvenc%20CU%20%28Coding%20Unit%29%20%E7%BC%96%E7%A0%81%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    vvenc CU (Coding Unit) 编码流程详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 函数功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 核心流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 模式决策循环
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rd-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) RD Cost 计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      (4) 划分决策
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键代码段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 关键代码段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 帧间预测处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 划分模式测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) 最终结果保存
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 特殊处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-nnlf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 与NNLF相关的问题排查
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">主要流程</h1>
+<p>这段代码是视频编码标准（如H.266/VVC）中编码单元（CU）处理的核心函数 <code>EncCu::xCompressCU()</code>，负责对当前CU进行多种编码模式的测试（如帧内/帧间预测、划分方式等），并选择最优的编码配置。以下是关键部分的解析：</p>
+<hr />
+<h3 id="1"><strong>1. 函数功能</strong></h3>
+<ul>
+<li><strong>输入</strong>：  </li>
+<li><code>tempCS</code>：临时编码结构，存储当前测试的编码结果。  </li>
+<li><code>bestCS</code>：存储当前最优的编码结果。  </li>
+<li><code>partitioner</code>：划分器，管理CU的划分方式（QTMT：四叉树+多类型树）。  </li>
+<li><code>maxCostAllowed</code>：允许的最大RD Cost，用于提前终止。  </li>
+<li><strong>输出</strong>：更新 <code>bestCS</code> 为最优编码配置。</li>
+</ul>
+<hr />
+<h3 id="2"><strong>2. 核心流程</strong></h3>
+<h4 id="1_1"><strong>(1) 初始化</strong></h4>
+<ul>
+<li><strong>并行处理检查</strong>：若启用并行划分（<code>ENABLE_SPLIT_PARALLELISM</code>），调用 <code>xCompressCUParallel</code>。  </li>
+<li><strong>颜色分量处理</strong>：根据色度格式（如YUV 4:2:0）初始化分量索引（<code>compBegin</code> 和 <code>numComp</code>）。  </li>
+<li><strong>PLT（调色板模式）初始化</strong>：保存前一个CU的调色板状态（<code>bestLastPLT</code>）。  </li>
+</ul>
+<h4 id="2_1"><strong>(2) 模式决策循环</strong></h4>
+<p>通过 <code>m_modeCtrl-&gt;nextMode()</code> 遍历所有可能的编码模式，包括：<br />
+- <strong>帧间预测（Inter）</strong>：<br />
+  - 普通帧间（<code>ETM_INTER_ME</code>）、仿射运动（<code>ETM_AFFINE</code>）、Hash运动估计（<code>ETM_HASH_INTER</code>）。<br />
+  - 调用 <code>xCheckRDCostInter</code> 或 <code>xCheckRDCostInterIMV</code> 计算RD Cost。<br />
+- <strong>帧内预测（Intra）</strong>：<br />
+  - 普通帧内（<code>ETM_INTRA</code>）、ISP（帧内子划分）。<br />
+- <strong>IBC（帧内块拷贝）</strong>：<code>ETM_IBC</code>。<br />
+- <strong>调色板模式（PLT）</strong>：<code>ETM_PALETTE</code>。<br />
+- <strong>划分测试（Split）</strong>：<br />
+  - 调用 <code>xCheckModeSplit</code> 测试QT（四叉树）、BT（二叉树）、TT（三叉树）等划分方式。  </p>
+<h4 id="3-rd-cost"><strong>(3) RD Cost 计算</strong></h4>
+<ul>
+<li>每种模式通过率失真优化（RDO）计算代价：<br />
+  <div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="n">bestIntPelCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">bestIntPelCost</span><span class="p">,</span><span class="w"> </span><span class="n">bestCS</span><span class="o">-&gt;</span><span class="n">cost</span><span class="p">);</span><span class="w"> </span><span class="c1">// 更新最优代价</span>
+</span></code></pre></div></td></tr></table></div></li>
+<li><strong>关键逻辑</strong>：  </li>
+<li>若当前模式代价低于 <code>maxCostAllowed</code>，更新 <code>bestCS</code>。  </li>
+<li>通过 <code>m_CABACEstimator</code> 计算比特率，结合失真（SSE/SATD）得到RD Cost。</li>
+</ul>
+<h4 id="4"><strong>(4) 划分决策</strong></h4>
+<ul>
+<li><strong>QTMT划分</strong>：在 <code>xCheckModeSplit</code> 中递归测试所有划分方式（如64x64 → 32x32 QT 或 64x32 BT）。  </li>
+<li><strong>提前终止</strong>：若某划分的RD Cost超过阈值，跳过后续划分测试。  </li>
+</ul>
+<hr />
+<h3 id="3"><strong>3. 关键代码段</strong></h3>
+<h4 id="1_2"><strong>(1) 帧间预测处理</strong></h4>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTestMode</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ETM_INTER_ME</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="n">xCheckRDCostInter</span><span class="p">(</span><span class="n">tempCS</span><span class="p">,</span><span class="w"> </span><span class="n">bestCS</span><span class="p">,</span><span class="w"> </span><span class="n">partitioner</span><span class="p">,</span><span class="w"> </span><span class="n">currTestMode</span><span class="p">);</span><span class="w"> </span><span class="c1">// 普通帧间</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tryObmc</span><span class="p">)</span><span class="w"> </span><span class="n">xCheckRDCostInterWoOBMC</span><span class="p">(</span><span class="n">tempCS</span><span class="p">,</span><span class="w"> </span><span class="n">bestCS</span><span class="p">,</span><span class="w"> </span><span class="n">partitioner</span><span class="p">,</span><span class="w"> </span><span class="n">currTestMode</span><span class="p">);</span><span class="w"> </span><span class="c1">// 测试OBMC</span>
+</span><span id="__span-1-4"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="2_2"><strong>(2) 划分模式测试</strong></h4>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isModeSplit</span><span class="p">(</span><span class="n">currTestMode</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="n">xCheckModeSplit</span><span class="p">(</span><span class="n">tempCS</span><span class="p">,</span><span class="w"> </span><span class="n">bestCS</span><span class="p">,</span><span class="w"> </span><span class="n">partitioner</span><span class="p">,</span><span class="w"> </span><span class="n">currTestMode</span><span class="p">);</span><span class="w"> </span><span class="c1">// 测试QT/BT/TT划分</span>
+</span><span id="__span-2-3"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="3_1"><strong>(3) 最终结果保存</strong></h4>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="n">bestCS</span><span class="o">-&gt;</span><span class="n">picture</span><span class="o">-&gt;</span><span class="n">getRecoBuf</span><span class="p">(</span><span class="n">currCsArea</span><span class="p">).</span><span class="n">copyFrom</span><span class="p">(</span><span class="n">bestCS</span><span class="o">-&gt;</span><span class="n">getRecoBuf</span><span class="p">(</span><span class="n">currCsArea</span><span class="p">));</span><span class="w"> </span><span class="c1">// 保存重建图像</span>
+</span><span id="__span-3-2"><span class="n">m_modeCtrl</span><span class="o">-&gt;</span><span class="n">finishCULevel</span><span class="p">(</span><span class="n">partitioner</span><span class="p">);</span><span class="w"> </span><span class="c1">// 结束当前CU处理</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="4_1"><strong>4. 特殊处理</strong></h3>
+<ul>
+<li><strong>GDR（渐进解码刷新）</strong>：在刷新区域强制使用帧内模式。  </li>
+<li><strong>色度QP调整</strong>：根据色度分量位置调整QP偏移。  </li>
+<li><strong>并行编码</strong>：通过 <code>ENABLE_SPLIT_PARALLELISM</code> 支持多线程划分。  </li>
+</ul>
+<hr />
+<h3 id="5-nnlf"><strong>5. 与NNLF相关的问题排查</strong></h3>
+<p>若发现NNLF导致块划分不一致，需检查：<br />
+1. <strong>NNLF调用位置</strong>：是否在 <code>xEstimateInterResidual</code> 中修改了残差计算？<br />
+2. <strong>RD Cost变化</strong>：NNLF是否影响了失真计算（如滤波后残差更平滑，导致划分决策改变）？<br />
+3. <strong>调试建议</strong>：<br />
+   - 在 <code>xCheckRDCostInter</code> 中打印划分前后的RD Cost。<br />
+   - 对比关闭NNLF时的划分结果，确认问题是否由NNLF引起。</p>
+<hr />
+<h3 id="_2"><strong>总结</strong></h3>
+<p>此函数是编码器模式决策的核心，通过RDO在多种编码模式和划分方式中选择最优解。若引入NNLF后划分不一致，需聚焦于残差计算和RD Cost更新的逻辑，确保NNLF未破坏划分决策的稳定性。</p>
+<h1 id="_3">递归划分</h1>
+<p>在视频编码标准（如H.266/VVC）中，<strong>CU（Coding Unit）的压缩过程是递归的</strong>，通过递归划分（如四叉树QT、二叉树BT、三叉树TT）逐步处理不同尺寸的块。以下是递归过程的详细说明：</p>
+<hr />
+<h3 id="1-qtmtquadtree-multi-type-tree"><strong>1. 递归划分的基础：QTMT（Quadtree + Multi-Type Tree）</strong></h3>
+<p>H.266/VVC采用 <strong>QTMT（四叉树+多类型树）</strong> 划分结构，递归地将CU划分为更小的子块：
+- <strong>四叉树（QT）</strong>：将CU垂直和水平各切一刀，分成 <strong>4个相同大小的子CU</strong>（如64x64 → 4个32x32）。
+- <strong>二叉树（BT）</strong>：将CU沿垂直或水平方向切一刀，分成 <strong>2个子CU</strong>（如64x64 → 2个64x32或32x64）。
+- <strong>三叉树（TT）</strong>：将CU沿垂直或水平方向切两刀，分成 <strong>3个子CU</strong>（如64x64 → 64x21 + 64x22 + 64x21）。</p>
+<hr />
+<h3 id="2_3"><strong>2. 递归流程的核心函数</strong></h3>
+<p>递归过程主要通过以下函数实现（以VTM代码为例）：</p>
+<h4 id="1-xcompresscu"><strong>(1) 入口函数：<code>xCompressCU()</code></strong></h4>
+<ul>
+<li><strong>作用</strong>：处理当前CU的所有可能编码模式（帧内/帧间/划分等）。</li>
+<li><strong>递归触发点</strong>：调用 <code>xCheckModeSplit()</code> 测试划分模式。</li>
+</ul>
+<h4 id="2-xcheckmodesplit"><strong>(2) 划分决策函数：<code>xCheckModeSplit()</code></strong></h4>
+<ul>
+<li><strong>递归逻辑</strong>：</li>
+<li><strong>生成子划分</strong>：根据划分类型（QT/BT/TT）生成子CU区域。</li>
+<li><strong>递归调用</strong>：对每个子CU再次调用 <code>xCompressCU()</code>。</li>
+<li><strong>终止条件</strong>：当CU达到最小允许尺寸（如4x4）或提前终止条件满足时停止递归。</li>
+</ul>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="kt">void</span><span class="w"> </span><span class="nf">EncCu::xCheckModeSplit</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><span class="w">    </span><span class="c1">// 遍历所有划分模式（QT/BT/TT）</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">splitMode</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">QT_SPLIT</span><span class="p">,</span><span class="w"> </span><span class="n">BT_HOR_SPLIT</span><span class="p">,</span><span class="w"> </span><span class="n">BT_VER_SPLIT</span><span class="p">,</span><span class="w"> </span><span class="n">TT_HOR_SPLIT</span><span class="p">,</span><span class="w"> </span><span class="n">TT_VER_SPLIT</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><span class="w">        </span><span class="n">Partitioner</span><span class="w"> </span><span class="n">subPartitioner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">partitioner</span><span class="p">;</span><span class="w"> </span><span class="c1">// 复制划分器</span>
+</span><span id="__span-4-5"><span class="w">        </span><span class="n">subPartitioner</span><span class="p">.</span><span class="n">splitCurrArea</span><span class="p">(</span><span class="n">splitMode</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">tempCS</span><span class="p">);</span><span class="w"> </span><span class="c1">// 生成子区域</span>
+</span><span id="__span-4-6">
+</span><span id="__span-4-7"><span class="w">        </span><span class="c1">// 递归处理每个子CU</span>
+</span><span id="__span-4-8"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">subCU</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">subPartitioner</span><span class="p">.</span><span class="n">currSubCUs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-9"><span class="w">            </span><span class="n">xCompressCU</span><span class="p">(</span><span class="n">tempCS</span><span class="p">,</span><span class="w"> </span><span class="n">bestCS</span><span class="p">,</span><span class="w"> </span><span class="n">subPartitioner</span><span class="p">,</span><span class="w"> </span><span class="n">maxCostAllowed</span><span class="p">);</span><span class="w"> </span><span class="c1">// 递归调用</span>
+</span><span id="__span-4-10"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-11"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-12"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="3_2"><strong>3. 递归过程的示例</strong></h3>
+<p>以 <strong>64x64 CU</strong> 为例，递归路径可能如下：
+1. <strong>第一层递归（64x64）</strong>：<br />
+   - 测试不划分（直接编码）的RD Cost。<br />
+   - 测试QT划分 → 生成4个32x32子CU。<br />
+2. <strong>第二层递归（32x32子CU）</strong>：<br />
+   - 对每个32x32子CU，测试BT水平划分 → 生成2个32x16子CU。<br />
+3. <strong>第三层递归（32x16子CU）</strong>：<br />
+   - 继续划分或终止（如达到最小尺寸8x8）。  </p>
+<p><strong>递归树示意图</strong>：
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1">64x64
+</span><span id="__span-5-2">├── 不划分（直接编码）
+</span><span id="__span-5-3">└── QT划分（4x32x32）
+</span><span id="__span-5-4">    ├── 32x32-A → BT划分 → 2x32x16
+</span><span id="__span-5-5">    ├── 32x32-B → 不划分
+</span><span id="__span-5-6">    ├── 32x32-C → TT划分 → 3x32x(10+12+10)
+</span><span id="__span-5-7">    └── 32x32-D → ...
+</span></code></pre></div></td></tr></table></div></p>
+<hr />
+<h3 id="4_2"><strong>4. 递归终止条件</strong></h3>
+<p>递归在以下情况下终止：
+1. <strong>达到最小CU尺寸</strong>（如4x4，由SPS指定）。<br />
+2. <strong>提前终止</strong>：若当前划分的RD Cost已明显劣于不划分的Cost。<br />
+3. <strong>强制约束</strong>：如GDR（渐进解码刷新）区域强制使用帧内模式。  </p>
+<hr />
+<h3 id="5-rdo"><strong>5. 关键优化：RDO（率失真优化）</strong></h3>
+<ul>
+<li><strong>RD Cost计算</strong>：对每种划分模式计算 <code>Cost = D + λ×R</code>，其中：  </li>
+<li><code>D</code> 是失真（如SSE、SATD）。  </li>
+<li><code>R</code> 是编码比特数。  </li>
+<li><strong>最优选择</strong>：递归过程中保留RD Cost最小的划分方式。</li>
+</ul>
+<hr />
+<h3 id="6-nnlf"><strong>6. 与NNLF相关的递归问题排查</strong></h3>
+<p>如果NNLF导致划分不一致，需检查：
+1. <strong>残差计算影响</strong>：NNLF是否在 <code>xEstimateInterResidual()</code> 中修改了残差，导致RD Cost变化？<br />
+2. <strong>划分决策阈值</strong>：NNLF是否影响了提前终止的阈值（如 <code>m_skipThreshold</code>）？<br />
+3. <strong>调试建议</strong>：<br />
+   - 在递归调用前后打印 <strong>CU尺寸、划分模式、RD Cost</strong>。<br />
+   - 对比关闭NNLF时的递归路径差异。</p>
+<hr />
+<h3 id="_4"><strong>总结</strong></h3>
+<p>CU压缩通过 <strong>递归划分（QTMT）</strong> 实现，逐层测试划分模式并选择最优解。递归的核心是 <code>xCompressCU()</code> 和 <code>xCheckModeSplit()</code> 的交互，而RDO驱动决策。若引入NNLF导致问题，需聚焦其对残差和RD Cost的影响。</p>
+<h1 id="_5">模式选择初始化</h1>
+<p>在视频编码的CU处理过程中，模式决策循环的第一次模式是通过 <strong>模式控制器（<code>m_modeCtrl</code>）的初始化逻辑</strong> 确定的。以下是具体机制：</p>
+<hr />
+<h3 id="1_3"><strong>1. 模式控制器的核心作用</strong></h3>
+<p><code>m_modeCtrl</code>（如 <code>EncModeCtrlMTnoRQT</code> 类）负责管理所有可能的编码模式，并按优先级顺序组织这些模式。其核心功能包括：
+- <strong>模式列表生成</strong>：根据CU属性（尺寸、位置、参考帧等）生成候选模式列表。
+- <strong>模式顺序优化</strong>：根据编码配置（如速度优化选项）跳过低概率模式，加速决策。</p>
+<hr />
+<h3 id="2_4"><strong>2. 第一次模式的获取流程</strong></h3>
+<p>在 <code>xCompressCU()</code> 的 <code>do-while</code> 循环中，第一次模式通过以下步骤确定：</p>
+<h4 id="1_4"><strong>(1) 模式控制器初始化</strong></h4>
+<p>在进入循环前，<code>m_modeCtrl</code> 通过 <code>initCULevel()</code> 初始化：
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="n">m_modeCtrl</span><span class="o">-&gt;</span><span class="n">initCULevel</span><span class="p">(</span><span class="n">partitioner</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">tempCS</span><span class="p">);</span><span class="w"> </span><span class="c1">// 初始化模式控制器</span>
+</span></code></pre></div></td></tr></table></div>
+此函数会根据当前CU的 <strong>位置、尺寸、相邻块信息</strong> 等生成候选模式列表。</p>
+<h4 id="2-currtestmode"><strong>(2) 首次调用 <code>currTestMode()</code></strong></h4>
+<p>第一次循环开始时，通过 <code>m_modeCtrl-&gt;currTestMode()</code> 获取第一个模式：
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><span class="n">EncTestMode</span><span class="w"> </span><span class="n">currTestMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_modeCtrl</span><span class="o">-&gt;</span><span class="n">currTestMode</span><span class="p">();</span><span class="w"> </span><span class="c1">// 获取当前测试模式</span>
+</span></code></pre></div></td></tr></table></div>
+此时，<code>currTestMode</code> 的值是模式控制器初始化后 <strong>优先级最高</strong> 的模式。</p>
+<hr />
+<h3 id="3_3"><strong>3. 第一次模式的选择逻辑</strong></h3>
+<p>首次模式的选择通常基于以下规则（以VVC参考软件VTM为例）：</p>
+<h4 id="1_5"><strong>(1) 快速模式优先</strong></h4>
+<ul>
+<li><strong>Merge/Skip模式</strong>：在帧间编码中，Merge/Skip模式（<code>ETM_MERGE_SKIP</code>）通常被优先测试，因为其计算量低且概率高。</li>
+<li><strong>IBC模式</strong>：若CU在帧内区域或满足IBC条件，可能优先测试IBC（帧内块拷贝）。</li>
+</ul>
+<h4 id="2-cu"><strong>(2) 基于CU属性的启发式规则</strong></h4>
+<ul>
+<li><strong>大尺寸CU</strong>：优先测试 <strong>不划分（No Split）</strong> 或 <strong>四叉树（QT）划分</strong>。</li>
+<li><strong>小尺寸CU</strong>：优先测试 <strong>帧内预测</strong> 或 <strong>二叉树（BT）划分</strong>。</li>
+</ul>
+<h4 id="3_4"><strong>(3) 参考帧和运动信息</strong></h4>
+<ul>
+<li>若相邻块有有效运动矢量（MV），可能优先测试 <strong>仿射运动（Affine）</strong> 或 <strong>普通帧间（Inter ME）</strong>。</li>
+</ul>
+<hr />
+<h3 id="4-vtm"><strong>4. 示例：VTM中的首次模式选择</strong></h3>
+<p>在VTM代码中，首次模式可能通过以下逻辑生成：
+1. <strong>强制关键帧</strong>：若CU位于IDR帧，直接选择 <strong>帧内模式（ETM_INTRA）</strong>。
+2. <strong>Merge/Skip优先</strong>：若为帧间CU，优先测试 <code>ETM_MERGE_SKIP</code>。
+3. <strong>划分模式决策</strong>：若CU尺寸大于最小允许尺寸，优先测试 <strong>不划分（No Split）</strong> 的RD Cost。</p>
+<hr />
+<h3 id="5"><strong>5. 调试与验证</strong></h3>
+<p>若需验证第一次模式的选择逻辑，可以：
+1. <strong>打印模式列表</strong>：在 <code>m_modeCtrl-&gt;initCULevel()</code> 后输出候选模式列表。
+2. <strong>跟踪模式控制器状态</strong>：检查 <code>m_modeCtrl</code> 内部状态机如何生成第一个模式。</p>
+<hr />
+<h3 id="_6"><strong>总结</strong></h3>
+<p>第一次模式由模式控制器根据 <strong>CU属性、编码配置和启发式规则</strong> 动态生成，通常优先测试高概率模式（如Merge/Skip或帧内）以加速决策。该逻辑嵌入在 <code>m_modeCtrl</code> 的初始化过程中，确保编码效率与压缩性能的平衡。</p>
+<h1 id="xcompresscu">xCompressCU初始化</h1>
+<p>在进入模式决策循环（<code>do-while</code>）之前，除了模式控制器（<code>m_modeCtrl</code>）的初始化外，还进行了以下关键内容的初始化：</p>
+<hr />
+<h3 id="1-plt"><strong>1. 颜色分量与PLT（调色板模式）状态初始化</strong></h3>
+<ul>
+<li><strong>颜色分量处理</strong>：根据是否使用双树（Dual Tree）或分离树（Separate Tree），初始化 <code>compBegin</code> 和 <code>numComp</code>，确定当前处理的颜色分量（如Y、Cb、Cr）。</li>
+<li><strong>PLT历史状态</strong>：  </li>
+<li>保存前一个CU的调色板信息（<code>curLastPLTSize</code> 和 <code>curLastPLT</code>），用于后续PLT模式决策。  </li>
+<li>初始化最佳PLT状态（<code>bestLastPLTSize</code> 和 <code>bestLastPLT</code>），用于记录当前最优的PLT配置。</li>
+</ul>
+<hr />
+<h3 id="2-gdr"><strong>2. GDR（渐进解码刷新）相关处理</strong></h3>
+<ul>
+<li><strong>区域判断</strong>：若启用GDR，检查当前CU是否位于 <strong>刷新区域（Refresh Area）</strong> 或 <strong>清洁区域（Clean Area）</strong>。</li>
+<li><strong>参考帧设置</strong>：  </li>
+<li>根据区域属性，设置参考帧的清洁状态（<code>setCleanDirty</code>），确保运动补偿使用正确的重建数据。  </li>
+<li>强制使用帧内模式：若CU跨刷新区域边界，通过 <code>m_modeCtrl-&gt;forceIntraMode()</code> 强制跳过帧间模式。</li>
+</ul>
+<hr />
+<h3 id="3_5"><strong>3. 编码工具上下文初始化</strong></h3>
+<ul>
+<li><strong>SBT（Subblock Transform）与InterMTS</strong>：  </li>
+<li>若当前CU允许使用SBT或InterMTS，重置相关历史数据（<code>slsSbt-&gt;resetSaveloadSbt()</code>），以支持子块变换或多尺寸变换的快速决策。</li>
+<li><strong>OBMC（Overlapped Block Motion Compensation）</strong>：  </li>
+<li>初始化临时CU结构（<code>m_pTempCUWoOBMC</code>），用于存储不带OBMC的预测数据，供后续RD Cost比较。</li>
+</ul>
+<hr />
+<h3 id="4-qp"><strong>4. QP（量化参数）相关初始化</strong></h3>
+<ul>
+<li><strong>色度QP偏移</strong>：  </li>
+<li>若Slice允许色度QP调整（<code>slice.getUseChromaQpAdj()</code>），根据CU位置计算色度QP偏移索引（<code>m_cuChromaQpOffsetIdxPlus1</code>），确保色度分量QP正确。</li>
+</ul>
+<hr />
+<h3 id="5_1"><strong>5. 运动估计与预测初始化</strong></h3>
+<ul>
+<li><strong>仿射运动重置</strong>：通过 <code>m_pcInterSearch-&gt;resetSavedAffineMotion()</code> 清除保存的仿射运动候选。</li>
+<li><strong>多假设预测（MHP）缓冲区</strong>：初始化临时缓冲区（<code>m_acRealMergeBuffer</code> 和 <code>m_acGeoWeightedBuffer</code>），用于存储多假设预测的候选运动信息。</li>
+</ul>
+<hr />
+<h3 id="6"><strong>6. 颜色空间变换初始化</strong></h3>
+<ul>
+<li><strong>颜色空间选择</strong>：若Slice支持颜色空间变换（<code>sps.getUseColorTrans()</code>），初始化临时颜色空间成本（<code>tmpColorSpaceCost</code>），用于比较不同颜色空间（如RGB/YUV）的编码效率。</li>
+</ul>
+<hr />
+<h3 id="7"><strong>7. 划分决策优化</strong></h3>
+<ul>
+<li><strong>划分成本记录</strong>：初始化 <code>splitRdCostBest</code> 数组，记录不同划分方式（如QT/BT/TT）的RD Cost，用于后续快速跳过低概率划分。</li>
+</ul>
+<hr />
+<h3 id="8"><strong>8. 调试与追踪</strong></h3>
+<ul>
+<li><strong>日志上下文</strong>：通过 <code>DTRACE_UPDATE</code> 设置当前CU的位置和尺寸，用于编码过程跟踪。</li>
+</ul>
+<hr />
+<h3 id="_7"><strong>总结</strong></h3>
+<p>在模式决策循环前，代码完成了 <strong>颜色分量处理、PLT状态保存、GDR区域判断、编码工具上下文重置、QP参数计算、运动估计初始化、颜色空间选择优化</strong> 等关键步骤。这些初始化确保编码上下文（如参考数据、变换工具、成本记录）处于正确状态，为后续模式决策（如帧内/帧间/划分）提供基础。</p>
+<h2 id="_8">初始化问题若干</h2>
+<p>双树（Dual Tree）或分离树（Separate Tree）是什么？compBegin 和 numComp是做什么的？如何确定当前处理的颜色分量（如Y、Cb、Cr）？​PLT模式是什么？刷新区域（Refresh Area）​ 或 ​清洁区域（Clean Area）会有何种不同处理？再详细解释GDR（渐进解码刷新）相关处理中的参考帧设置。
+以下是针对视频编码中关键概念和技术的详细解释，按模块分类说明：</p>
+<hr />
+<h3 id="1-dual-treeseparate-tree"><strong>1. 双树（Dual Tree）与分离树（Separate Tree）</strong></h3>
+<h4 id="_9"><strong>定义与作用</strong></h4>
+<ul>
+<li><strong>双树（Dual Tree）</strong>  </li>
+<li><strong>概念</strong>：在VVC/H.266中，允许亮度和色度分量<strong>独立划分</strong>（如亮度QT划分，色度不划分）。  </li>
+<li><strong>目的</strong>：提升色度分量的编码效率，尤其在高色度分辨率（如4:4:4）场景下。  </li>
+<li>
+<p><strong>触发条件</strong>：通过SPS（序列参数集）中的 <code>dualTreeType</code> 标志启用。</p>
+</li>
+<li>
+<p><strong>分离树（Separate Tree）</strong>  </p>
+</li>
+<li><strong>概念</strong>：亮度和色度分量<strong>完全分离处理</strong>（如帧内编码时亮度用二叉树，色度用四叉树）。  </li>
+<li><strong>典型应用</strong>：帧内预测时，色度可能采用更简单的划分方式以减少复杂度。</li>
+</ul>
+<h4 id="_10"><strong>代码中的判断逻辑</strong></h4>
+<h2 id="1-2-3-4-5-6-7if-csisdualitreetempcs-compbegin-isluma-component_y-component_cb-numcomp-isluma-1-2-12-else-compbegin-component_y-numcomp-chromaformat-chroma_400-3-1-400"><div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CS</span><span class="o">::</span><span class="n">isDualITree</span><span class="p">(</span><span class="o">*</span><span class="n">tempCS</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 双树处理</span>
+</span><span id="__span-8-2"><span class="w">    </span><span class="n">compBegin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">isLuma</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">COMPONENT_Y</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">COMPONENT_Cb</span><span class="p">;</span>
+</span><span id="__span-8-3"><span class="w">    </span><span class="n">numComp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">isLuma</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 亮度1分量，色度2分量</span>
+</span><span id="__span-8-4"><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 单树或分离树</span>
+</span><span id="__span-8-5"><span class="w">    </span><span class="n">compBegin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COMPONENT_Y</span><span class="p">;</span>
+</span><span id="__span-8-6"><span class="w">    </span><span class="n">numComp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">chromaFormat</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CHROMA_400</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 400格式无色度</span>
+</span><span id="__span-8-7"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></h2>
+<h3 id="2-compbegin-numcomp"><strong>2. <code>compBegin</code> 和 <code>numComp</code> 的作用</strong></h3>
+<ul>
+<li><strong><code>compBegin</code></strong>：标识当前处理的<strong>起始分量</strong>（如 <code>COMPONENT_Y</code> 表示从亮度开始）。  </li>
+<li><strong><code>numComp</code></strong>：需处理的分量数量：  </li>
+<li><strong>4:2:0格式</strong>：亮度（Y）+ 色度（Cb, Cr）→ <code>numComp = 3</code>。  </li>
+<li><strong>4:0:0格式（无色度）</strong>：仅亮度 → <code>numComp = 1</code>。  </li>
+<li><strong>双树模式下</strong>：亮度或色度单独处理 → <code>numComp = 1</code>（亮度）或 <code>2</code>（色度）。</li>
+</ul>
+<hr />
+<h3 id="3-pltpalette-mode"><strong>3. PLT（调色板模式，Palette Mode）</strong></h3>
+<h4 id="_11"><strong>核心思想</strong></h4>
+<ul>
+<li><strong>适用场景</strong>：图像中存在<strong>少量主要颜色</strong>（如屏幕内容、卡通图像）。  </li>
+<li><strong>编码方式</strong>：  </li>
+<li>为CU构建一个调色板（Palette），记录主要颜色值。  </li>
+<li>每个像素用调色板索引表示，而非直接编码像素值。  </li>
+<li>对索引进行熵编码（如Run-Length编码）。</li>
+</ul>
+<h4 id="plt"><strong>代码中的PLT状态管理</strong></h4>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><span class="c1">// 保存前一个CU的PLT状态</span>
+</span><span id="__span-9-2"><span class="n">memcpy</span><span class="p">(</span><span class="n">curLastPLT</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">tempCS</span><span class="o">-&gt;</span><span class="n">prevPLT</span><span class="p">.</span><span class="n">curPLT</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">curLastPLTSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Pel</span><span class="p">));</span>
+</span><span id="__span-9-3"><span class="c1">// 最佳PLT状态更新</span>
+</span><span id="__span-9-4"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bestCU</span><span class="o">-&gt;</span><span class="n">predMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MODE_PLT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><span class="w">    </span><span class="n">bestCS</span><span class="o">-&gt;</span><span class="n">reorderPrevPLT</span><span class="p">(...);</span><span class="w"> </span><span class="c1">// 根据当前CU优化PLT</span>
+</span><span id="__span-9-6"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="4-gdr"><strong>4. GDR（渐进解码刷新）的区域处理</strong></h3>
+<h4 id="vs"><strong>刷新区域 vs 清洁区域</strong></h4>
+<ul>
+<li><strong>刷新区域（Refresh Area）</strong>  </li>
+<li><strong>定义</strong>：视频帧中<strong>正在被刷新的区域</strong>（如因丢包需重建）。  </li>
+<li>
+<p><strong>处理</strong>：强制使用帧内模式（无帧间参考），避免错误传播。</p>
+</li>
+<li>
+<p><strong>清洁区域（Clean Area）</strong>  </p>
+</li>
+<li><strong>定义</strong>：已正确解码的<strong>无错误区域</strong>。  </li>
+<li><strong>处理</strong>：允许帧间预测，参考其他帧的运动信息。</li>
+</ul>
+<h4 id="_12"><strong>参考帧设置逻辑</strong></h4>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isInGdrInterval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><span class="w">    </span><span class="c1">// 设置参考帧的清洁状态</span>
+</span><span id="__span-10-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">refPic</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">slice</span><span class="p">.</span><span class="n">getRefPicList</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><span class="w">        </span><span class="n">refPic</span><span class="o">-&gt;</span><span class="n">setCleanDirty</span><span class="p">(</span><span class="n">isCuInCleanArea</span><span class="p">);</span>
+</span><span id="__span-10-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-6"><span class="w">    </span><span class="c1">// 强制刷新区域使用帧内</span>
+</span><span id="__span-10-7"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isCuInRefreshArea</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><span class="w">        </span><span class="n">m_modeCtrl</span><span class="o">-&gt;</span><span class="n">forceIntraMode</span><span class="p">();</span><span class="w"> </span><span class="c1">// 跳过帧间模式</span>
+</span><span id="__span-10-9"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-10"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="5-gdr"><strong>5. GDR参考帧设置的详细流程</strong></h3>
+<ol>
+<li><strong>区域检测</strong>：  </li>
+<li>根据GDR参数（如 <code>gdrBegX/gdrEndX</code>）判断CU是否位于刷新/清洁区域。  </li>
+<li><strong>参考帧标记</strong>：  </li>
+<li>若CU在清洁区域，参考帧标记为“清洁”，允许运动补偿；否则标记为“脏”，限制参考范围。  </li>
+<li><strong>模式强制</strong>：  </li>
+<li>刷新区域强制使用帧内模式，避免依赖可能错误的参考像素。  </li>
+<li><strong>并行处理同步</strong>：  </li>
+<li>多线程环境下，需确保参考帧状态跨线程一致（如通过 <code>setCleanDirty</code> 同步）。</li>
+</ol>
+<hr />
+<h3 id="_13"><strong>总结</strong></h3>
+<ul>
+<li><strong>双树/分离树</strong>：通过分量独立划分优化编码效率。  </li>
+<li><strong>PLT模式</strong>：对颜色简单的块用调色板索引压缩。  </li>
+<li><strong>GDR处理</strong>：通过区域划分和参考帧控制，平衡错误恢复与编码效率。  </li>
+<li><strong>代码实现</strong>：通过 <code>compBegin/numComp</code> 管理分量，<code>PLT</code> 状态机维护调色板，<code>GDR</code> 逻辑确保鲁棒性。</li>
+</ul>
+<h1 id="_14"><strong>双树/分离树</strong>补充</h1>
+<p>在视频编码标准（如VVC/H.266）中，<strong>双树（Dual Tree）</strong>和<strong>分离树（Separate Tree）</strong>是两种不同的分量处理策略，主要针对亮度和色度分量的划分与预测优化。以下是它们的详细差异及树结构的具体体现：</p>
+<hr />
+<h3 id="1_6"><strong>1. 核心概念与差异</strong></h3>
+<h4 id="1-dual-tree"><strong>(1) 双树（Dual Tree）</strong></h4>
+<ul>
+<li><strong>定义</strong>：亮度和色度分量<strong>共享相同的划分结构</strong>（如四叉树QT、二叉树BT等），但允许在<strong>某些条件下独立调整</strong>（如色度分量的划分深度受限）。  </li>
+<li><strong>目的</strong>：在保持亮度和色度划分大体一致的前提下，为色度提供一定的灵活性，避免因色度复杂度低而浪费编码资源。  </li>
+<li><strong>典型场景</strong>：  </li>
+<li>默认情况下，亮度和色度划分一致（单树模式）。  </li>
+<li>当色度分量的纹理简单时，可能提前终止色度的进一步划分（如色度不划分到底层）。</li>
+</ul>
+<h4 id="2-separate-tree"><strong>(2) 分离树（Separate Tree）</strong></h4>
+<ul>
+<li><strong>定义</strong>：亮度和色度分量<strong>完全独立划分</strong>，各自拥有独立的划分结构和预测模式。  </li>
+<li><strong>目的</strong>：最大化分量的编码自由度，尤其适用于亮度和色度特性差异大的场景（如色度平坦但亮度复杂）。  </li>
+<li><strong>典型场景</strong>：  </li>
+<li>帧内预测时，亮度可能使用复杂的多类型树划分（QTMT），而色度仅用四叉树划分。  </li>
+<li>色度分量可能跳过某些划分层级以降低复杂度。</li>
+</ul>
+<h4 id="_15"><strong>关键差异对比</strong></h4>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>双树（Dual Tree）</strong></th>
+<th><strong>分离树（Separate Tree）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>划分结构</strong></td>
+<td>亮度和色度共享主划分，色度可微调</td>
+<td>亮度和色度完全独立划分</td>
+</tr>
+<tr>
+<td><strong>灵活性</strong></td>
+<td>色度划分受亮度约束，但可提前终止</td>
+<td>色度完全自主决策</td>
+</tr>
+<tr>
+<td><strong>复杂度</strong></td>
+<td>较低（色度依赖亮度划分）</td>
+<td>较高（需独立处理色度）</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>普通视频（亮色度相关性高）</td>
+<td>高色度分辨率（如4:4:4）、屏幕内容</td>
+</tr>
+<tr>
+<td><strong>编码效率</strong></td>
+<td>平衡复杂度与效率</td>
+<td>可能更高，但计算开销大</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2_5"><strong>2. 树结构的具体体现</strong></h3>
+<h4 id="1_7"><strong>(1) 划分结构的代码表示</strong></h4>
+<p>在VVC中，树的划分通过 <strong><code>Partitioner</code></strong> 类管理，关键参数包括：
+- <strong><code>modeType</code></strong>：区分帧内（MODE_TYPE_INTRA）或帧间（MODE_TYPE_INTER）。<br />
+- <strong><code>treeType</code></strong>：标识当前处理的是亮度（TREE_D）或色度（TREE_C）。  </p>
+<p><strong>示例逻辑</strong>：
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><span class="c1">// 双树模式下，色度划分受亮度约束</span>
+</span><span id="__span-11-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CS</span><span class="o">::</span><span class="n">isDualITree</span><span class="p">(</span><span class="o">*</span><span class="n">cs</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><span class="w">    </span><span class="n">partitioner</span><span class="p">.</span><span class="n">treeType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TREE_C</span><span class="p">;</span><span class="w"> </span><span class="c1">// 处理色度时切换到色度树</span>
+</span><span id="__span-11-4"><span class="w">    </span><span class="n">partitioner</span><span class="p">.</span><span class="n">modeType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MODE_TYPE_INTRA</span><span class="p">;</span><span class="w"> </span><span class="c1">// 帧内预测</span>
+</span><span id="__span-11-5"><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-6"><span class="c1">// 分离树模式下，色度完全独立</span>
+</span><span id="__span-11-7"><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">partitioner</span><span class="p">.</span><span class="n">isSepTree</span><span class="p">(</span><span class="o">*</span><span class="n">cs</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><span class="w">    </span><span class="n">partitioner</span><span class="p">.</span><span class="n">treeType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TREE_C</span><span class="p">;</span><span class="w"> </span><span class="c1">// 色度独立划分</span>
+</span><span id="__span-11-9"><span class="w">    </span><span class="n">partitioner</span><span class="p">.</span><span class="n">chType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHANNEL_TYPE_CHROMA</span><span class="p">;</span><span class="w"> </span><span class="c1">// 色度通道</span>
+</span><span id="__span-11-10"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="2_6"><strong>(2) 划分决策的差异</strong></h4>
+<ul>
+<li><strong>双树</strong>：色度的划分深度通常不超过亮度。例如，亮度划分到32x32时，色度可能停在64x64。  </li>
+<li><strong>分离树</strong>：色度可能完全跳过某些划分类型（如二叉树），仅使用四叉树。</li>
+</ul>
+<p><strong>示例代码</strong>（划分终止条件）：
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><span class="c1">// 双树模式下，色度提前终止划分</span>
+</span><span id="__span-12-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">partitioner</span><span class="p">.</span><span class="n">treeType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TREE_C</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cuSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">minChromaSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><span class="w">    </span><span class="n">earlyTerminate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// 色度不再进一步划分</span>
+</span><span id="__span-12-4"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="3_6"><strong>(3) 预测模式的独立性</strong></h4>
+<ul>
+<li><strong>分离树</strong>：色度可独立选择帧内/帧间预测模式，与亮度无关。  </li>
+<li><strong>双树</strong>：色度的预测模式通常与亮度关联（如亮度选择帧内，色度也强制帧内）。</li>
+</ul>
+<p><strong>预测模式选择</strong>：
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><span class="c1">// 分离树下色度独立选择帧间模式</span>
+</span><span id="__span-13-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">partitioner</span><span class="p">.</span><span class="n">isSepTree</span><span class="p">(</span><span class="o">*</span><span class="n">cs</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">slice</span><span class="p">.</span><span class="n">isIntra</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><span class="w">    </span><span class="n">cu</span><span class="p">.</span><span class="n">predMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MODE_INTER</span><span class="p">;</span><span class="w"> </span><span class="c1">// 色度允许帧间预测</span>
+</span><span id="__span-13-4"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<hr />
+<h3 id="3_7"><strong>3. 实际编码中的影响</strong></h3>
+<h4 id="1_8"><strong>(1) 编码效率</strong></h4>
+<ul>
+<li><strong>分离树</strong>：在4:4:4格式下，色度的独立划分可能提升压缩率（如色度使用更简单的模式）。  </li>
+<li><strong>双树</strong>：在4:2:0格式下，色度分辨率低，双树可减少冗余决策。</li>
+</ul>
+<h4 id="2_7"><strong>(2) 复杂度</strong></h4>
+<ul>
+<li><strong>分离树</strong>：需为色度单独运行模式决策，增加编码时间。  </li>
+<li><strong>双树</strong>：色度依赖亮度划分，减少计算量。</li>
+</ul>
+<h4 id="3_8"><strong>(3) 应用场景</strong></h4>
+<ul>
+<li><strong>双树</strong>：默认用于大多数视频（如4:2:0格式的自然内容）。  </li>
+<li><strong>分离树</strong>：用于高色度分辨率内容（如4:4:4的屏幕共享）或专业场景。</li>
+</ul>
+<hr />
+<h3 id="4_3"><strong>4. 总结</strong></h3>
+<ul>
+<li><strong>双树</strong>：亮度和色度划分<strong>部分耦合</strong>，色度灵活性有限，适合普通视频。  </li>
+<li><strong>分离树</strong>：亮度和色度<strong>完全解耦</strong>，适合高色度分辨率或复杂度差异大的场景。  </li>
+<li><strong>树结构体现</strong>：通过 <code>treeType</code>、<code>chType</code> 和划分深度控制，在代码中表现为不同的划分终止条件和预测模式选择。  </li>
+</ul>
+<p>通过灵活选择双树或分离树，编码器可以平衡效率与复杂度，适应多样化的视频内容需求。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
