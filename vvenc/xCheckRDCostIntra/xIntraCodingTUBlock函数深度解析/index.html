@@ -1,0 +1,1623 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../xIntraCodingLumaQT%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/">
+      
+      
+        <link rel="next" href="../xSpeedUpISP%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>xIntraCodingTUBlock函数深度解析 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              xIntraCodingTUBlock函数深度解析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%2B%2B/C%2B%2B%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++文件读取
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Codec
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Codec
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Codec/Intra%20Predicition/ISP%E4%B8%8EMIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ISP与MIP在视频编解码中的技术与应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ECM-NNLF-VLOP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ECM-NNLF-VLOP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/CU%E5%88%92%E5%88%86%E4%B8%8E%E7%BC%96%E7%A0%81%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CU划分与编码顺序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/xCompressCU%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主要流程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%EF%BC%9A%60getGeoBlendCand%60%20%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    代码解释：`getGeoBlendCand` 函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/%E5%87%A0%E4%BD%95%E6%B7%B7%E5%90%88%E5%80%99%E9%80%89%28Geometric%20Blending%20Candidates%29%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    几何混合候选(Geometric Blending Candidates)详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/%E5%B8%A7%E5%86%85%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    帧内预测模式依赖相邻CU信息程度
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E4%B8%AD%E5%90%84Buffer%E7%9A%84%E5%88%86%E7%B1%BB%E4%B8%8E%E4%BA%A7%E7%94%9F%E7%8E%AF%E8%8A%82%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    视频编解码中各Buffer的分类与产生环节分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ECM-NNLF-VLOP/%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E6%A0%87%E5%87%86%E4%B8%AD%E4%B8%BB%E8%A6%81%E5%9B%BE%E5%83%8F%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB%E5%92%8C%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    视频编解码标准中主要图像类型的分类和定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    vvenc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            vvenc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataStructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Partitioner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvenc%20CU%20%28Coding%20Unit%29%20%E7%BC%96%E7%A0%81%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    vvenc CU (Coding Unit) 编码流程详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calcRdCost%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    calcRdCost 函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estIntraPredChromaQT%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    estIntraPredChromaQT函数深度解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estIntraPredLumaQT%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    estIntraPredLumaQT函数深度解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getDistPart%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    getDistPart函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../invTransformNxN%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    invTransformNxN函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predIntraAng%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    predIntraAng函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformNxN%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    transformNxN函数深度解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xCheckBestMode%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xCheckBestMode函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xCheckRDCostIntra%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xCheckRDCostIntra函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xIntraChromaCodingQT%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xIntraChromaCodingQT函数深度解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xIntraCodingLumaQT%E5%87%BD%E6%95%B0%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xIntraCodingLumaQT函数深度解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    xIntraCodingTUBlock函数深度解析
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    xIntraCodingTUBlock函数深度解析
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数核心功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数执行流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数执行流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 初始化阶段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 帧内预测（仅对亮度分量）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 残差计算（仅对亮度分量）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 变换和量化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 重建处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 失真计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键技术点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 预测模式处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 变换量化处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 色度特殊处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 率失真优化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      性能优化技术
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据结构交互
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xSpeedUpISP%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xSpeedUpISP函数解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xFunction%21%20%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xFunction! 这是什么？
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数核心功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数执行流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数执行流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 初始化阶段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 帧内预测（仅对亮度分量）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 残差计算（仅对亮度分量）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 变换和量化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 重建处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 失真计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键技术点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 预测模式处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 变换量化处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 色度特殊处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 率失真优化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      性能优化技术
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据结构交互
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>xIntraCodingTUBlock函数深度解析</h1>
+
+<p><code>xIntraCodingTUBlock</code> 是 VVENC 编码器中处理单个变换单元(TU)帧内编码的核心函数，负责执行预测、残差计算、变换量化和重建的完整流程。</p>
+<h2 id="_1">函数核心功能</h2>
+<ol>
+<li><strong>帧内预测</strong>：生成预测信号</li>
+<li><strong>残差计算</strong>：计算原始信号与预测信号的差值</li>
+<li><strong>变换量化</strong>：对残差进行变换和量化</li>
+<li><strong>重建处理</strong>：生成重建信号</li>
+<li><strong>失真计算</strong>：评估编码质量</li>
+</ol>
+<h2 id="_2">函数执行流程</h2>
+<h3 id="1">1. 初始化阶段</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">tu</span><span class="p">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">compID</span><span class="p">].</span><span class="n">valid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="c1">// 检查TU有效性</span>
+</span><span id="__span-0-3"><span class="p">}</span>
+</span><span id="__span-0-4">
+</span><span id="__span-0-5"><span class="c1">// 获取基本参数</span>
+</span><span id="__span-0-6"><span class="n">CodingStructure</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">tu</span><span class="p">.</span><span class="n">cs</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="k">const</span><span class="w"> </span><span class="n">CompArea</span><span class="w"> </span><span class="o">&amp;</span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tu</span><span class="p">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">compID</span><span class="p">];</span>
+</span><span id="__span-0-8"><span class="k">const</span><span class="w"> </span><span class="n">SPS</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">cs</span><span class="p">.</span><span class="n">sps</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="k">const</span><span class="w"> </span><span class="n">ChannelType</span><span class="w"> </span><span class="n">chType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toChannelType</span><span class="p">(</span><span class="n">compID</span><span class="p">);</span>
+</span><span id="__span-0-10"><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bitDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sps</span><span class="p">.</span><span class="n">bitDepths</span><span class="p">[</span><span class="n">chType</span><span class="p">];</span>
+</span><span id="__span-0-11">
+</span><span id="__span-0-12"><span class="c1">// 获取各种缓冲区</span>
+</span><span id="__span-0-13"><span class="n">CPelBuf</span><span class="w"> </span><span class="n">piOrg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">getOrgBuf</span><span class="p">(</span><span class="n">area</span><span class="p">);</span><span class="w">    </span><span class="c1">// 原始信号</span>
+</span><span id="__span-0-14"><span class="n">PelBuf</span><span class="w"> </span><span class="n">piPred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">getPredBuf</span><span class="p">(</span><span class="n">area</span><span class="p">);</span><span class="w">   </span><span class="c1">// 预测信号</span>
+</span><span id="__span-0-15"><span class="n">PelBuf</span><span class="w"> </span><span class="n">piResi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">getResiBuf</span><span class="p">(</span><span class="n">area</span><span class="p">);</span><span class="w">   </span><span class="c1">// 残差信号</span>
+</span><span id="__span-0-16"><span class="n">PelBuf</span><span class="w"> </span><span class="n">piReco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">getRecoBuf</span><span class="p">(</span><span class="n">area</span><span class="p">);</span><span class="w">   </span><span class="c1">// 重建信号</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="2">2. 帧内预测（仅对亮度分量）</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="c1">// 亮度分量预测</span>
+</span><span id="__span-1-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLuma</span><span class="p">(</span><span class="n">compID</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="c1">// 初始化预测模式</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="n">cu</span><span class="o">-&gt;</span><span class="n">ispMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><span class="w">        </span><span class="n">initIntraPatternChTypeISP</span><span class="p">(</span><span class="o">*</span><span class="n">tu</span><span class="p">.</span><span class="n">cu</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="n">piReco</span><span class="p">);</span><span class="w"> </span><span class="c1">// ISP模式处理</span>
+</span><span id="__span-1-6"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">predBuf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><span class="w">        </span><span class="n">initIntraPatternChType</span><span class="p">(</span><span class="o">*</span><span class="n">tu</span><span class="p">.</span><span class="n">cu</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常规模式</span>
+</span><span id="__span-1-8"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-9">
+</span><span id="__span-1-10"><span class="w">    </span><span class="c1">// 执行预测</span>
+</span><span id="__span-1-11"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">predBuf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><span class="w">        </span><span class="n">piPred</span><span class="p">.</span><span class="n">copyFrom</span><span class="p">(</span><span class="n">predBuf</span><span class="o">-&gt;</span><span class="n">Y</span><span class="p">());</span><span class="w"> </span><span class="c1">// 使用外部预测</span>
+</span><span id="__span-1-13"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CU</span><span class="o">::</span><span class="n">isMIP</span><span class="p">(</span><span class="n">cu</span><span class="p">,</span><span class="w"> </span><span class="n">CH_L</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><span class="w">        </span><span class="n">predIntraMip</span><span class="p">(</span><span class="n">piPred</span><span class="p">,</span><span class="w"> </span><span class="n">cu</span><span class="p">);</span><span class="w">     </span><span class="c1">// 矩阵预测</span>
+</span><span id="__span-1-15"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-16"><span class="w">        </span><span class="n">predIntraAng</span><span class="p">(</span><span class="n">compID</span><span class="p">,</span><span class="w"> </span><span class="n">piPred</span><span class="p">,</span><span class="w"> </span><span class="n">cu</span><span class="p">);</span><span class="w"> </span><span class="c1">// 角度预测</span>
+</span><span id="__span-1-17"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-18"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="3">3. 残差计算（仅对亮度分量）</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="c1">// 计算残差信号</span>
+</span><span id="__span-2-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLuma</span><span class="p">(</span><span class="n">compID</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n">picHeader</span><span class="o">-&gt;</span><span class="n">lmcsEnabled</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">reshapeData</span><span class="p">.</span><span class="n">getCTUFlag</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><span class="w">        </span><span class="n">piResi</span><span class="p">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n">getRspOrgBuf</span><span class="p">(</span><span class="n">area</span><span class="p">),</span><span class="w"> </span><span class="n">piPred</span><span class="p">);</span><span class="w"> </span><span class="c1">// 考虑亮度映射</span>
+</span><span id="__span-2-5"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><span class="w">        </span><span class="n">piResi</span><span class="p">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">piOrg</span><span class="p">,</span><span class="w"> </span><span class="n">piPred</span><span class="p">);</span><span class="w"> </span><span class="c1">// 常规残差计算</span>
+</span><span id="__span-2-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="4">4. 变换和量化</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="c1">// 设置QP参数</span>
+</span><span id="__span-3-2"><span class="k">const</span><span class="w"> </span><span class="n">QpParam</span><span class="w"> </span><span class="nf">cQP</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span><span class="w"> </span><span class="n">compID</span><span class="p">);</span>
+</span><span id="__span-3-3"><span class="n">m_pcTrQuant</span><span class="o">-&gt;</span><span class="n">selectLambda</span><span class="p">(</span><span class="n">compID</span><span class="p">);</span>
+</span><span id="__span-3-4">
+</span><span id="__span-3-5"><span class="c1">// 亮度分量处理</span>
+</span><span id="__span-3-6"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLuma</span><span class="p">(</span><span class="n">compID</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><span class="w">    </span><span class="n">TCoeff</span><span class="w"> </span><span class="n">uiAbsSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-8"><span class="w">    </span><span class="n">m_pcTrQuant</span><span class="o">-&gt;</span><span class="n">transformNxN</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span><span class="w"> </span><span class="n">compID</span><span class="p">,</span><span class="w"> </span><span class="n">cQP</span><span class="p">,</span><span class="w"> </span><span class="n">uiAbsSum</span><span class="p">,</span><span class="w"> </span><span class="n">m_CABACEstimator</span><span class="o">-&gt;</span><span class="n">getCtx</span><span class="p">(),</span><span class="w"> </span><span class="n">loadTr</span><span class="p">);</span>
+</span><span id="__span-3-9">
+</span><span id="__span-3-10"><span class="w">    </span><span class="c1">// 逆变换</span>
+</span><span id="__span-3-11"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uiAbsSum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><span class="w">        </span><span class="n">m_pcTrQuant</span><span class="o">-&gt;</span><span class="n">invTransformNxN</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span><span class="w"> </span><span class="n">compID</span><span class="p">,</span><span class="w"> </span><span class="n">piResi</span><span class="p">,</span><span class="w"> </span><span class="n">cQP</span><span class="p">);</span>
+</span><span id="__span-3-13"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-14"><span class="w">        </span><span class="n">piResi</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 零残差</span>
+</span><span id="__span-3-15"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-16"><span class="p">}</span>
+</span><span id="__span-3-17"><span class="c1">// 色度分量处理...</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="5">5. 重建处理</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="c1">// 重建信号</span>
+</span><span id="__span-4-2"><span class="n">piReco</span><span class="p">.</span><span class="n">reconstruct</span><span class="p">(</span><span class="n">piPred</span><span class="p">,</span><span class="w"> </span><span class="n">piResi</span><span class="p">,</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">slice</span><span class="o">-&gt;</span><span class="n">clpRngs</span><span class="p">[</span><span class="n">compID</span><span class="p">]);</span>
+</span><span id="__span-4-3">
+</span><span id="__span-4-4"><span class="c1">// 色度联合编码处理</span>
+</span><span id="__span-4-5"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jointCbCr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><span class="w">    </span><span class="n">crReco</span><span class="p">.</span><span class="n">reconstruct</span><span class="p">(</span><span class="n">crPred</span><span class="p">,</span><span class="w"> </span><span class="n">crResi</span><span class="p">,</span><span class="w"> </span><span class="n">cs</span><span class="p">.</span><span class="n">slice</span><span class="o">-&gt;</span><span class="n">clpRngs</span><span class="p">[</span><span class="n">COMP_Cr</span><span class="p">]);</span>
+</span><span id="__span-4-7"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="6">6. 失真计算</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><span class="c1">// 计算失真</span>
+</span><span id="__span-5-2"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n">picHeader</span><span class="o">-&gt;</span><span class="n">lmcsEnabled</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="c1">// 考虑亮度映射的失真计算</span>
+</span><span id="__span-5-4"><span class="w">    </span><span class="n">ruiDist</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">m_pcRdCost</span><span class="o">-&gt;</span><span class="n">getDistPart</span><span class="p">(</span><span class="n">piOrg</span><span class="p">,</span><span class="w"> </span><span class="n">piReco</span><span class="p">,</span><span class="w"> </span><span class="n">bitDepth</span><span class="p">,</span><span class="w"> </span><span class="n">compID</span><span class="p">,</span><span class="w"> </span><span class="n">DF_SSE_WTD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">orgLuma</span><span class="p">);</span>
+</span><span id="__span-5-5"><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><span class="w">    </span><span class="c1">// 常规失真计算</span>
+</span><span id="__span-5-7"><span class="w">    </span><span class="n">ruiDist</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">m_pcRdCost</span><span class="o">-&gt;</span><span class="n">getDistPart</span><span class="p">(</span><span class="n">piOrg</span><span class="p">,</span><span class="w"> </span><span class="n">piReco</span><span class="p">,</span><span class="w"> </span><span class="n">bitDepth</span><span class="p">,</span><span class="w"> </span><span class="n">compID</span><span class="p">,</span><span class="w"> </span><span class="n">DF_SSE</span><span class="p">);</span>
+</span><span id="__span-5-8"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="_3">关键技术点</h2>
+<h3 id="1_1">1. 预测模式处理</h3>
+<ul>
+<li>支持多种预测模式：</li>
+<li>常规角度预测 (<code>predIntraAng</code>)</li>
+<li>矩阵预测 (<code>predIntraMip</code>)</li>
+<li>ISP子分区预测 (<code>initIntraPatternChTypeISP</code>)</li>
+<li>支持从外部传入预测信号 (<code>predBuf</code>)</li>
+</ul>
+<h3 id="2_1">2. 变换量化处理</h3>
+<ul>
+<li>亮度色度分别处理</li>
+<li>支持联合CbCr编码 (<code>jointCbCr</code>)</li>
+<li>自适应QP参数选择 (<code>QpParam</code>)</li>
+<li>支持变换跳过模式</li>
+</ul>
+<h3 id="3_1">3. 色度特殊处理</h3>
+<div class="language-cpp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jointCbCr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><span class="w">    </span><span class="n">m_pcTrQuant</span><span class="o">-&gt;</span><span class="n">invTransformICT</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span><span class="w"> </span><span class="n">piResi</span><span class="p">,</span><span class="w"> </span><span class="n">crResi</span><span class="p">);</span><span class="w"> </span><span class="c1">// 逆ICT变换</span>
+</span><span id="__span-6-3"><span class="w">    </span><span class="c1">// ...色度残差缩放等处理</span>
+</span><span id="__span-6-4"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>支持联合色度编码 (Joint CbCr)</li>
+<li>色度残差缩放</li>
+<li>独立的色度QP控制</li>
+</ul>
+<h3 id="4_1">4. 率失真优化</h3>
+<ul>
+<li>自适应λ参数选择 (<code>selectLambda</code>)</li>
+<li>加权失真计算 (<code>DF_SSE_WTD</code>)</li>
+<li>考虑亮度映射的失真计算</li>
+</ul>
+<h2 id="_4">性能优化技术</h2>
+<ol>
+<li><strong>内存访问优化</strong>：直接操作图像缓冲区，避免不必要拷贝</li>
+<li><strong>条件执行</strong>：根据标志位跳过不必要的处理</li>
+<li><strong>并行化友好</strong>：独立处理各个分量</li>
+<li><strong>快速算法</strong>：零块检测和提前终止</li>
+</ol>
+<h2 id="_5">数据结构交互</h2>
+<p>该函数与VVENC中多个关键数据结构交互：</p>
+<ol>
+<li><strong>TransformUnit</strong>：当前处理的变换单元</li>
+<li><strong>CodingStructure</strong>：编码上下文和缓冲区管理</li>
+<li><strong>QpParam</strong>：量化参数控制</li>
+<li><strong>TrQuant</strong>：变换量化处理器</li>
+<li><strong>RdCost</strong>：率失真计算</li>
+</ol>
+<p>这个函数是VVENC帧内编码流水线的核心环节，通过精细的预测、变换和量化处理，在保证编码效率的同时实现高质量的视频压缩。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
